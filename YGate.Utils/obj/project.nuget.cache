@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fgGqZ9CBkUE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Utils\\YGate.Utils.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Yusuf\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
