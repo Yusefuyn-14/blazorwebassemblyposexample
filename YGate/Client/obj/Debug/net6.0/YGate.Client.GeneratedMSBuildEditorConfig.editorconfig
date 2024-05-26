@@ -1,0 +1,107 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = YGate.Client
+build_property.RootNamespace = YGate.Client
+build_property.ProjectDir = C:\Users\Yusuf\Desktop\Projeler\YGate\YGate\Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Yusuf\Desktop\Projeler\YGate\YGate\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/IconButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJY29uQnV0dG9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointSaleDetail/ProductListContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludFNhbGVEZXRhaWxcUHJvZHVjdExpc3RDb250YWluZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PageIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZUluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PagePay.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVBheS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PageSetup.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVNldHVwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PageTest.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVRlc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Shared/Layouts/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExheW91dHNcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Shared/Layouts/MarketLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExheW91dHNcTWFya2V0TGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Shared/NavigationMenus/NavigationMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdmlnYXRpb25NZW51c1xOYXZpZ2F0aW9uTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointObject.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludE9iamVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fhomezlxx6
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointSaleDetail/CategoryButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludFNhbGVEZXRhaWxcQ2F0ZWdvcnlCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-h94uhomnbq
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointSaleDetail/ProductButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludFNhbGVEZXRhaWxcUHJvZHVjdEJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ffocvbl2au
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointSaleDetail/ProductDetailContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludFNhbGVEZXRhaWxcUHJvZHVjdERldGFpbENvbnRhaW5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-2hodfve2i3
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PointSaleDetail/SaleButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb2ludFNhbGVEZXRhaWxcU2FsZUJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-b7y3rgwlv0
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Components/PosDetailActionButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQb3NEZXRhaWxBY3Rpb25CdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zkceyjzgxt
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PageLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZUxvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-32q2rh58fv
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PagePointSaleDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVBvaW50U2FsZURldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-3bdy7svxq8
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Pages/PagePosPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVBvc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-g5ql2c7fql
+
+[C:/Users/Yusuf/Desktop/Projeler/YGate/YGate/Client/Shared/Layouts/StandartLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExheW91dHNcU3RhbmRhcnRMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ouvkbycb74

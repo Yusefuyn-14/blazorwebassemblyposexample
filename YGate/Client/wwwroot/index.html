@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>YGate</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="YGate.Client.styles.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+          integrity="sha512-nOk7sj5T6Zi3Ond5VHhc+L4WHvRuRhV/cOcWWDl2mOyTetiIfuv56UJzD0yYhz9Kqwk1PpU0/PX5+qpX43hVWg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <div id="app">
+        <p class="text-center" style="font-size:30px; width:100%; height:100%;">Uygulama yükleniyor...</p>
+    </div>
+
+
+    <script src="_framework/blazor.webassembly.js"></script>
+    <div class="mesajKutusuBackground" id="InputluMesajKutusu">
+        <div id="mesajKutusu">
+            <h4>Lütfen iade sebebini yazınız.</h4>
+            <input type="text" class="form-control" id="description" placeholder="...">
+            <div class="btn btn-success" onclick="toggleMesajKutusu()">Kapat</div>
+        </div>
+    </div>
+
+    <div class="mesajKutusuBackground" id="MesajKutusu">
+        <div id="mesajKutusu">
+            <h4>Dikkat</h4>
+            <p id="mesaj"></p>
+            <div class="btn btn-success" onclick="MesajKutulariniKapat()">Kapat</div>
+        </div>
+    </div>
+    <script>
+        function InputluMesajKutusuGoster() {
+            document.getElementById("InputluMesajKutusu").style.display = "flex";
+        }
+
+        function MesajKutusuGoster(message) {
+            document.getElementById("mesaj").innerHTML = message;
+            document.getElementById("MesajKutusu").style.display = "flex";
+        }
+
+        function MesajKutulariniKapat() {
+            document.getElementById("MesajKutusu").style.display = "none";
+            document.getElementById("InputluMesajKutusu").style.display = "none";
+            // @staticInfo.MesajGoster = "";
+        }
+    </script>
+    <style>
+        .mesajKutusuBackground {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #mesajKutusu {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿
+@page "/test/{*Values}"
+@layout StandartLayout
+<h3>test</h3>
+@id.ToString()
+@an.ToString()
+@Values.ToString();
+@code {
+    // foam-sasquatch-pasty-qualifier-protozoan BitWarden
+    [Parameter]
+    public int? id { get; set; }
+    [Parameter]
+    public int? an { get; set; }
+    [Parameter]
+    public string Values { get; set; }
+}

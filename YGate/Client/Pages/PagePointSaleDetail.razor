@@ -1,0 +1,175 @@
+﻿@page "/pointsaledetail"
+@using YGate.Client.Components.PointSaleDetail
+@using YGate.Shared.Concretes;
+@inject HttpClient Http
+@inject NavigationManager NavManager
+@inject StaticInformation staticInfo
+@layout StandartLayout
+
+<div class="row" style="height:100%;">
+    <div class="col" style="flex: 3.5; height:100%; max-height:100%;">
+        @if (Sales == null)
+        {
+            <p class="text-center"> Satış bekleniyor. </p>
+        }
+        else
+        {
+            <div class="scrollable-div">
+                @foreach (var item in Sales)
+                {
+                    <SaleButton Name="@item.ProductName.ToString()"
+                                Price="@item.Price"
+                                Amount="@item.Amount"
+                                ColorFromHex="@item.ColorFromHex"
+                                SelectedAction="SelectionAction"
+                                DeletedAction="DeletedAction"
+                                SelectedID="@item.SelectedID" />
+                    <div style="height:10px;" />
+                }
+            </div>
+            <div class="button-container">
+                <button class="rectangle-button right" @onclick="KaydetCık">Kaydet Çık</button>
+                <button class="circle-button" @onclick="SatislariKaydet">Kaydet</button>
+                <button class="rectangle-button left" @onclick="SayfaDegistir">İptal Et</button>
+
+            </div>
+        }
+    </div>
+    <div class="col" style="flex: 1.75;">
+        @if (Categories == null)
+        {
+            <p class="text-center"> Kategoriler bekleniyor. </p>
+        }
+        else
+        {
+            foreach (var item in Categories)
+            {
+                <CategoryButton VisibleText="@item.Name"
+                                ClickedEvent="()=>UrunleriniGetir(item.ID)" />
+            }
+        }
+    </div>
+    <div class="col" style="flex: 7;">
+        @if (Products == null)
+        {
+            <p class="text-center"> Ürünler bekleniyor. </p>
+        }
+        else
+        {
+            if (ProductType == 1)
+            {
+                <ProductListContainer ClickedEvent="SatisaUrunEkle" Products="Products" />
+            }
+            else
+            {
+                <ProductDetailContainer ClickedEvent="SatisaUrunEkle" Products="Products" />
+            }
+
+        }
+    </div>
+</div>
+
+@code {
+    private int ProductType = 2;
+    private int PointID = 1;
+    private string TicketID = Guid.NewGuid().ToString();
+
+    public void SelectionAction(string SelectedID)
+    {
+        staticInfo.ActiveMenuSettings.SelectedSalesItem = Sales.FirstOrDefault(xd => xd.SelectedID == SelectedID).ID;
+    }
+
+    public void DeletedAction(string SelectedID)
+    {
+        var ob = Sales.FirstOrDefault(xd => xd.SelectedID == SelectedID);
+        Sales.Remove(ob);
+        StateHasChanged();
+    }
+
+    public async void SatisaUrunEkle(int ID)
+    {
+        var eklenecenProduct = Products.FirstOrDefault(xd => xd.ID == ID);
+        Sales.Add(new Sale()
+            {
+                Amount = 1,
+                ColorFromHex = "#FF0",
+                CustomerID = 0,
+                Discount = 0,
+                EmployeeID = 0,
+                PointID = PointID,
+                ProductID = eklenecenProduct.ID,
+                Price = eklenecenProduct.Price,
+                ProductName = eklenecenProduct.Name,
+                SaleTime = DateTime.Now,
+                TicketID = TicketID,
+            });
+        StateHasChanged();
+    }
+
+    public async void KaydetCık()
+    {
+        SatislariKaydet();
+        SayfaDegistir();
+    }
+
+
+    public async void SatislariKaydet()
+    {
+        foreach (var item in Sales.Where(xd => xd.ColorFromHex == "#FF0"))
+        {
+            string uri = $"api/Sale/AddSales?ProductID={item.ProductID.ToString()}&PointID={PointID}&Amount={item.Amount}&OwnerGuid={staticInfo.MyToken.GID}";
+            await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>(uri);
+        }
+        SatislariGetir();
+    }
+
+    public void SayfaDegistir()
+    {
+        NavManager.NavigateTo("/pospage");
+    }
+
+    public async void UrunleriniGetir(int CategoryID)
+    {
+        YGate.Shared.Concretes.RequestObject obj2 = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>($"api/Product/GetProductWithCategoryID?ID={CategoryID.ToString()}");
+        Products = YGate.Utils.Json.Deserialized<List<Product>>(obj2.Data.ToString());
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
+        string returned = YGate.Utils.UriHelpers.GetValueInParameter(uri.ToString(), "id");
+        PointID = Convert.ToInt32(returned);
+        staticInfo.ActiveMenuSettings.TransferPoint = PointID;
+        staticInfo.ActiveMenuSettings.MenuType = NavigationMenuType.PosDetail;
+    }
+}
+
+@functions {
+    List<Product> Products = null;
+    List<Sale> Sales = null;
+    List<Category> Categories = null;
+
+    private async void SatislariGetir()
+    {
+        YGate.Shared.Concretes.RequestObject obj = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>($"api/Sale/GetSalesWithPointID?PointID={PointID}");
+        Sales = YGate.Utils.Json.Deserialized<List<Sale>>(obj.Data.ToString());
+        StateHasChanged();
+        LayoutDuzenle();
+    }
+
+    private void LayoutDuzenle()
+    {
+        staticInfo.ActiveMenuSettings.Price = Sales.Where(xd => xd.PayTypeID == 0).Sum(xd => xd.Price) ?? 0.0;
+        staticInfo.ActiveMenuSettings.Discount = Sales.Where(xd => xd.PayTypeID == 0).Sum(xd => xd.Discount) ?? 0.0;
+        staticInfo.ActiveMenuSettings.Payed = Sales.Where(xd => xd.PayTypeID != 0).Sum(xd => xd.Price) ?? 0.0;
+        // staticInfo.PosDetailNavigationMenu.LayoutStateHasChange.Invoke();
+    }
+    protected async override Task OnInitializedAsync()
+    {
+        SatislariGetir();
+
+        YGate.Shared.Concretes.RequestObject obj2 = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>($"api/Category/GetCategoryFromOwnerGuid?OwnerGuid={staticInfo.MyToken.GID}");
+        Categories = YGate.Utils.Json.Deserialized<List<Category>>(obj2.Data.ToString());
+    }
+}

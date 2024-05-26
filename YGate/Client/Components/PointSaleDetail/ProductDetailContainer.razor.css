@@ -1,0 +1,68 @@
+﻿.masalar-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.masa-card {
+    flex: 1;
+    max-width: calc(25% - 20px); /* Her sıradaki masa sayısına göre ayarlayabilirsiniz */
+    margin: 10px;
+}
+
+#pointobject {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#divIcon {
+    align-items: center;
+}
+
+.card-body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #0d6efd;
+}
+
+#divIcon {
+    height: 125px;
+    width: 100%;
+    margin: 0px;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    background-color:white;
+}
+
+#divAlt {
+    height: 20px;
+}
+
+#divIcerik {
+    height: calc(100% - 160px);
+    display: flex;
+    text-align: center;
+}
+
+span {
+    color: white;
+}
+
+img {
+    width: 100%;
+    margin:0px;
+    height: 100px;
+    background-color: transparent;
+    object-fit: cover;
+}

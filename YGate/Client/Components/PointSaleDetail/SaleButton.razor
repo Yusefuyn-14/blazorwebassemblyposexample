@@ -1,0 +1,79 @@
+﻿<button class="btn" style="color:var(--text-color);" @onclick="() =>
+    SelectedAction.Invoke(SelectedID)">
+    <div class="row">
+        <div class="col-md-5">
+            @if (ColorFromHex != "#0F0")
+            {
+                <div class="btn btn-primary" @onclick="() =>DeletedAction.Invoke(SelectedID)"><div class="oi oi-trash" /></div>
+                <div class="btn btn-primary" @onclick="MiktarArtir"><span>+</span></div>
+            }
+                <span style="height:10px">@Amount.ToString()</span>
+            @if (ColorFromHex != "#0F0")
+            {
+                <div class="btn btn-primary" @onclick="MiktarAzalt"><span>-</span></div>
+            }
+            adet
+        </div>
+        <div class="col-md-5">
+            <div>
+                @Name
+            </div>
+        </div>
+        <div class="col-md-2">
+            @vals₺
+        </div>
+    </div>
+</button>
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        vals = (Amount * Price).ToString();
+    }
+
+    string vals = "";
+
+    [Parameter]
+    public string SelectedID { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public double? Price { get; set; } = 0.0;
+
+    [Parameter]
+    public double Amount { get; set; }
+
+    [Parameter]
+    public string Object { get; set; }
+
+    [Parameter]
+    public string ColorFromHex { get; set; }
+
+    [Parameter]
+    public Action<string> SelectedAction { get; set; }
+
+    [Parameter]
+    public Action<string> DeletedAction { get; set; }
+
+    private void MiktarArtir()
+    {
+        Amount++;
+        ValsAyarla();
+    }
+
+    private void MiktarAzalt()
+    {
+        if (Amount == 1)
+            return;
+        Amount--;
+        ValsAyarla();
+    }
+
+    private void ValsAyarla()
+    {
+        vals = (Price * Amount).ToString();
+    }
+}

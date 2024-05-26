@@ -1,0 +1,29 @@
+﻿<button class="btn btn-primary" @onclick="()=> Aksiyons.Invoke(ID)">
+    <div class="row">
+        <div class="col-md-1">
+            <span class="btn-section">@Object</span>
+        </div>
+        <div class="col-md-7">
+            <span class="btn-section">@Name</span>
+        </div>
+        <div class="col-md-4">
+            <span class="btn-section">@Price₺</span>
+        </div>
+    </div>
+</button>
+@code {
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public string Price { get; set; }
+
+    [Parameter]
+    public string Object { get; set; }
+
+    [Parameter]
+    public int ID { get; set; }
+
+    [Parameter]
+    public Action<int> Aksiyons { get; set; }
+}

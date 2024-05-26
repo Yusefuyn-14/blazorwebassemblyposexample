@@ -1,0 +1,6 @@
+﻿button {
+    width: calc(100% - 2.5%);
+    height: 50px;
+    background-color: var(--body-primary);
+    margin: 0px 20px 0px 5px;
+}

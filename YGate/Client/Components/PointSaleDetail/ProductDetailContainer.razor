@@ -1,0 +1,28 @@
+﻿@using YGate.Shared.Concretes;
+<div class="masalar-container">
+    @foreach (Product item in Products)
+    {
+        <div class="masa-card" @onclick="()=> ClickedEvent.Invoke(item.ID)">
+            <div class="card" id="pointobject" style="background-color:#0d6efd">
+                <div class="card-body">
+                    <img class="row" id="divIcon" style="background-color:transparent;" src="https://www.nazar.com.tr/wp-content/uploads/2020/12/coca-cola330.jpg">
+                    <div class="row" id="divIcerik">
+                        <span style="font-size:20px;">@item.Name</span>
+                    </div>
+                    <div class="row" id="divAlt">
+                        <span class="col-md-12" style="text-align:center;">@item.Price₺</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public List<Product> Products { get; set; }
+
+    [Parameter]
+    public Action<int> ClickedEvent { get; set; }
+}

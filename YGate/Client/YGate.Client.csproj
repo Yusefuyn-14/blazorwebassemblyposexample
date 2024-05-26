@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Components\PointSaleDetail\CategoryButton.razor.css" />
+    <None Remove="Components\PointSaleDetail\ProductDetailContainer.razor.css" />
+    <None Remove="Pages\PosPage.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\PointSaleDetail\CategoryButton.razor.css" />
+    <Content Include="Components\PointSaleDetail\ProductDetailContainer.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.21" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\YGate.Business\YGate.Business.csproj" />
+    <ProjectReference Include="..\..\YGate.Utils\YGate.Utils.csproj" />
+    <ProjectReference Include="..\Shared\YGate.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

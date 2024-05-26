@@ -1,0 +1,15 @@
+﻿@using YGate.Shared.Concretes;
+<div class="button-container">
+    @foreach (var item in Products)
+    {
+        <ProductButton Name="@item.Name" Price="@item.Price.ToString()" ID="item.ID" Aksiyons="ClickedEvent"></ProductButton>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Product> Products { get; set; }
+
+    [Parameter]
+    public Action<int> ClickedEvent { get; set; }
+}

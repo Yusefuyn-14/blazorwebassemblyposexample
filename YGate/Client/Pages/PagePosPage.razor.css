@@ -1,0 +1,15 @@
+﻿.masalar-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.masa-card {
+    flex: 1;
+    max-width: calc(25% - 20px); /* Her sıradaki masa sayısına göre ayarlayabilirsiniz */
+    margin: 10px;
+}
+
+p {
+    font-size: 30px;
+    text-align: center;
+}

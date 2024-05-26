@@ -1,0 +1,59 @@
+﻿@page "/setup"
+@using YGate.Shared.Concretes;
+@layout MainLayout
+@inject HttpClient http
+
+<h2>Muhtemelen kurulum tamam.</h2>
+@code {
+
+}
+
+@functions{
+
+    protected override async Task OnInitializedAsync()
+    {
+        string OwnerGuid = Guid.NewGuid().ToString();
+        await http.GetFromJsonAsync<RequestObject>($"api/Login/Add?ID=&GID={OwnerGuid}&FirstName=Yusuf&SurName=Kıdır&UserName=Yusefuyn&Email=yusefuynofficial@g.c&Phone=+905392350448&Password={YGate.Utils.SHA256Hash.Hashed($"123456")}&OwnerGuid=Admin");
+
+        await http.GetFromJsonAsync<RequestObject>($"api/Category/Add?ID=&Name=Local Drinks&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Category/Add?ID=&Name=Soft Drinks&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Category/Add?ID=&Name=Pizzas&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Category/Add?ID=&Name=Breakfast&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=AbraCadabra&ColorFromHex=%23F00FFF&Description= &CategoryID=1&Price=8.5&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=BlodyMary&ColorFromHex=%23F00FFF&Description= &CategoryID=1&Price=7.0&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=Cola&ColorFromHex=%23F00FFF&Description= &CategoryID=2&Price=3.5&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=Fanta&ColorFromHex=%23F00FFF&Description= &CategoryID=2&Price=3.5&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=Mixed Pizza&ColorFromHex=%23F00FFF&Description= &CategoryID=3&Price=8.0&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=Mashroom Pizza&ColorFromHex=%23F00FFF&Description= &CategoryID=3&Price=7.0&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=Turkish Breakfast&ColorFromHex=%23F00FFF&Description= &CategoryID=4&Price=5.0&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Product/Add?ID=0&Name=English Breakfast&ColorFromHex=%23F00FFF&Description= &CategoryID=4&Price=5.0&OwnerGuid={OwnerGuid}");
+
+        await http.GetFromJsonAsync<RequestObject>($"api/Region/Add?ID=&Name=Salon&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Region/Add?ID=&Name=Bahce&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Region/Add?ID=&Name=Teras&ColorFromHex=%23FFFFFF&OwnerGuid={OwnerGuid}");
+
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 1&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 2&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 3&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 4&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 5&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 6&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 7&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 8&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 9&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Salon 10&RegionID=1&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Bahce 1&RegionID=2&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Bahce 2&RegionID=2&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Bahce 3&RegionID=2&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Bahce 4&RegionID=2&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Bahce 5&RegionID=2&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Teras 1&RegionID=3&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Teras 2&RegionID=3&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/Point/Add?ID=&Name=Teras 3&RegionID=3&OwnerGuid={OwnerGuid}");
+
+
+        await http.GetFromJsonAsync<RequestObject>($"api/PayType/Add?ID=&Name=Nakit&ColorFromHex=#FFFFFF&OwnerGuid={OwnerGuid}");
+        await http.GetFromJsonAsync<RequestObject>($"api/PayType/Add?ID=&Name=Kredi Kartı&ColorFromHex=#FFFFFF&OwnerGuid={OwnerGuid}");
+    }
+}

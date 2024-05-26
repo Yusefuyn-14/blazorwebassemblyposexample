@@ -1,0 +1,286 @@
+﻿@inject IJSRuntime js
+@inject StaticInformation staticInfo
+@inject NavigationManager navigationManager
+<style>
+    ul {
+        padding: 0px;
+    }
+</style>
+<header>
+    <div class="image-text">
+        <span class="image">
+            <img src="https://w7.pngwing.com/pngs/516/314/png-transparent-instagram-icon-computer-icons-logo-instagram-logo-miscellaneous-purple-text.png" alt="">
+        </span>
+
+        <div class="text logo-text">
+            <span class="name">YGate</span>
+            <span class="profession">Yardımcı yazılımlar</span>
+        </div>
+    </div>
+
+    <i class='bx bx-chevron-right toggle' @onclick="ResizeMenu"></i>
+</header>
+<div class="menu-bar">
+    <div class="menu">
+
+        <li class="search-box">
+            <i class='bx bx-search icon'></i>
+            <input type="text" placeholder="Search...">
+        </li>
+        @if (staticInfo.ActiveMenuSettings.MenuType == NavigationMenuType.PosPage)
+        {
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="">
+                        <i class='bx bx-home-circle icon'></i>
+                        <span class="nav-text">Ana Sayfa</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="pospage">
+                        <i class='bx bx-plus-circle icon'></i>
+                        <span class="nav-text">Pos</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="nav-text">Müşteriler</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="nav-text">Çalışanlar</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-location-plus icon'></i>
+                        <span class="nav-text">Satış bölgeleri</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-location-plus icon'></i>
+                        <span class="nav-text">Satış noktaları</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-list-check icon'></i>
+                        <span class="nav-text">Yapılacaklar</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="fetchdata">
+                        <i class='bx bx-calendar icon'></i>
+                        <span class="nav-text">Çalışma takvimi</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="test/12">
+                        <i class='bx bx-note icon'></i>
+                        <span class="nav-text">Notlar</span>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-link">
+                    <a href="test/12/12">
+                        <i class='bx bx-bar-chart-alt-2 icon'></i>
+                        <span class="nav-text">Raporlar</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        }
+        else if (staticInfo.ActiveMenuSettings.MenuType == NavigationMenuType.PosDetail)
+        {
+            <ul class="menu-links">
+                @if (staticInfo.ActiveMenuSettings.SelectedSalesItem > 0)
+                {
+                    <li class="nav-link" @onclick="ProductMove">
+                        <a>
+                            <i class='fa-solid fa-dolly icon'></i>
+                            <span class="nav-text">Ürün Taşı</span>
+                        </a>
+                    </li>
+                }
+                @if (staticInfo.ActiveMenuSettings.Payed > 0 || staticInfo.ActiveMenuSettings.Price > 0 || staticInfo.ActiveMenuSettings.Discount > 0)
+                {
+                    <li class="nav-link" @onclick="PointMove">
+                        <a>
+                            <i class='fa-solid fa-cart-flatbed icon'></i>
+                            <span class="nav-text">Nokta taşı</span>
+                        </a>
+                    </li>
+                }
+
+                <li class="nav-link">
+                    <a>
+                        <i class='fa-solid fa-note-sticky icon'></i>
+                        <span class="nav-text">Not Gir</span>
+                    </a>
+                </li>
+
+                @if (staticInfo.ActiveMenuSettings.Payed > 0 || staticInfo.ActiveMenuSettings.Price > 0 || staticInfo.ActiveMenuSettings.Discount > 0)
+                {
+                    <li class="nav-link">
+                        <a>
+                            <i class='oi oi-print icon'></i>
+                            <span class="nav-text">Yazdır</span>
+                        </a>
+
+                    </li>
+                }
+                @if (staticInfo.ActiveMenuSettings.SelectedSalesItem > 0)
+                {
+                    <li class="nav-link">
+                        <a>
+                            <i class='fa-solid fa-xmark icon'></i>
+                            <span class="nav-text">İptal</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a>
+                            <i class='oi oi-arrow-left icon'></i>
+                            <span class="nav-text">Iade</span>
+                        </a>
+                    </li>
+                }
+                @if (staticInfo.ActiveMenuSettings.Payed > 0 || staticInfo.ActiveMenuSettings.Price > 0 || staticInfo.ActiveMenuSettings.Discount > 0)
+                {
+                    <li class="nav-link">
+                        <a>
+                            <i class='fa-solid fa-share-nodes icon'></i>
+                            <span class="nav-text">Paylaş</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" @onclick='()=>navigationManager.NavigateTo($"/paypage?id={staticInfo.ActiveMenuSettings.TransferPoint}")'>
+                        <a>
+                            <i class='fa-solid fa-calculator icon'></i>
+                            <span class="nav-text">Ödeme</span>
+                        </a>
+                    </li>
+                }
+                <li class="nav-link" @onclick='()=>navigationManager.NavigateTo("/pospage")'>
+                    <a>
+                        <i class='oi oi-arrow-left icon'></i>
+                        <span class="nav-text">Geri</span>
+                    </a>
+                </li>
+            </ul>
+        }
+        else if (staticInfo.ActiveMenuSettings.MenuType == NavigationMenuType.PayPage)
+        {
+            <li class="nav-link" @onclick="ProductMove">
+                <a>
+                    <i class='fa-solid fa-calculator icon'></i>
+                    <span class="nav-text">Hesap Makinesi</span>
+                </a>
+            </li>
+        }
+    </div>
+
+    <div class="bottom-content">
+        <li class="" @onclick="()=> Exit()">
+            <i class='bx bx-log-out icon'></i>
+            <span class="nav-text">Çıkış</span>
+        </li>
+
+        <li class="mode">
+            <div class="sun-moon">
+                <i class='bx bx-moon icon moon'></i>
+                <i class='bx bx-sun icon sun'></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+                <span class="switch" @onclick="ChangeTheme"></span>
+            </div>
+        </li>
+
+    </div>
+</div>
+<script>
+
+    function ResizeMenu() {
+        const sidebar = document.querySelector(".sidebar");
+        if (sidebar.classList.contains("close")) {
+            sidebar.classList.remove("close");
+            document.querySelector('.home').style.left = '255px';
+        }
+        else {
+            sidebar.classList.toggle("close");
+            document.querySelector('.home').style.left = '90px';
+        }
+    }
+
+    function ThemeChange() {
+        const body = document.querySelector('body');
+        const modeText = body.querySelector(".mode-text");
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+            modeText.innerText = "Light mode";
+        } else {
+            modeText.innerText = "Dark mode";
+        }
+    }
+</script>
+
+@code {
+    protected override void OnInitialized()
+    {
+        staticInfo.ActiveMenuSettings.NavMenuStateHasChange = () => StateHasChanged();
+    }
+
+    public void ChangeTheme()
+    {
+        js.InvokeAsync<object>("ThemeChange");
+    }
+
+    public void ResizeMenu()
+    {
+        js.InvokeAsync<object>("ResizeMenu");
+    }
+
+    private void Exit()
+    {
+        staticInfo.MyToken = null;
+        navigationManager.NavigateTo("/");
+    }
+
+    public async void Iade()
+    {
+        string Note = "";
+    }
+
+    public async void PointMove()
+    {
+        staticInfo.ShowAlert("Satış noktasını taşıyorsunuz lütfen başka bir satış noktasına tıklayınız.");
+        staticInfo.ActiveMenuSettings.TransferOperation = true;
+        navigationManager.NavigateTo("/pospage");
+    }
+
+    public async void ProductMove()
+    {
+        staticInfo.ActiveMenuSettings.TransferItem = staticInfo.ActiveMenuSettings.SelectedSalesItem;
+        staticInfo.ActiveMenuSettings.TransferOperation = true;
+        // staticInfo.AlertGoster();
+        staticInfo.ShowAlert("Ürün taşıyorsunuz lütfen bir satış noktasına tıklayınız.");
+        navigationManager.NavigateTo("/pospage");
+    }
+}

@@ -1,0 +1,15 @@
+﻿<div class="btn btn-primary"  @onclick="CallbackAction">
+    @VisibleText
+    <span class="oi oi-home"></span>
+</div>
+@code {
+
+    [Parameter]
+    public string VisibleText { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> CallbackAction { get; set; }
+
+    [Parameter]
+    public string ColorFromHex { get; set; } = "#00AA00";
+}

@@ -1,0 +1,130 @@
+﻿@using System.Net.Http.Json;
+@using YGate.Client.Shared.Layouts;
+@using YGate.Shared.Concretes;
+@using YGate.Utils;
+@inject StaticInformation staticInfo
+@layout StandartLayout;
+@page "/pospage";
+@inject HttpClient Http;
+@inject NavigationManager navManager
+@inject IJSRuntime js
+@if (Regions == null)
+{
+    <p><em>Bölgeler yükleniyor.</em></p>
+}
+else
+{
+    <div style="margin:5px;">
+        @foreach (Region item in Regions)
+        {
+            <IconButton VisibleText="@item.Name" CallbackAction="()=> MasalariGetir(item.ID)" ColorFromHex="#0A44A0"></IconButton>
+            <span style="height:1px;width:10px;"></span>
+        }
+    </div>
+}
+
+@if (Points == null)
+{
+    <p><em>Noktalar bekleniyor.</em></p>
+}
+else
+{
+    <div class="masalar-container">
+        @foreach (Point item in Points)
+        {
+            string Datetime = "00:00";
+            TimeSpan fs = (TimeSpan)(DateTime.Now - (item.LastProcessTime != null ? item.LastProcessTime : DateTime.Now));
+            Datetime = fs.Hours > 0 ? $"{fs.Hours}:{fs.Minutes}:{fs.Seconds}" : $"{fs.Minutes}:{fs.Seconds}";
+            <PointObject PointName="@item.Name" ID="@item.ID" ClickedAction="MasayaGit" ColorFromHex="#0A0" Price="@item.Price.ToString()" Time="@Datetime"></PointObject>
+        }
+    </div>
+}
+@code {
+    private async void MasayaGit(int ID)
+    {
+        if (staticInfo.ActiveMenuSettings.TransferItem > 0 && staticInfo.ActiveMenuSettings.TransferOperation)
+        {
+            string parametersur = "api/Sale/UrunuTasi?" + new ParameterUriConverter()
+            .Add("OwnerGuid", staticInfo.MyToken.GID)
+            .Add("PointID", ID)
+            .Add("UrunID", staticInfo.ActiveMenuSettings.TransferItem)
+            .Generate();
+
+            var result = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>(parametersur);
+
+            if (result.Result)
+            {
+                staticInfo.HideAlert();
+
+                staticInfo.ActiveMenuSettings.TransferItem = -1;
+                staticInfo.ActiveMenuSettings.SelectedSalesItem = -1;
+                staticInfo.MesajGoster("Başarıyla ürününüz taşındı.");
+
+            }
+            else
+            {
+                staticInfo.MesajGoster("Ne yazık ki ürününüz taşınamadı.");
+
+            }
+            MasalariGetir(staticInfo.AcivePosSettings.LastRegionID);
+
+
+        }
+        else if (staticInfo.ActiveMenuSettings.TransferPoint > 0 && staticInfo.ActiveMenuSettings.TransferOperation)
+        {
+            string parametersur = "api/Sale/MasaninSatislariniTasi?" + new ParameterUriConverter()
+             .Add("OwnerGuid", staticInfo.MyToken.GID)
+             .Add("OldPointID", staticInfo.ActiveMenuSettings.TransferPoint)
+             .Add("NewPointID", ID)
+             .Generate();
+
+            var result = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>(parametersur);
+            if (result.Result)
+            {
+                staticInfo.HideAlert();
+                staticInfo.ActiveMenuSettings.TransferPoint = -1;
+                // js.InvokeAsync<string>("MesajKutusuGoster", new object[] { "Başarıyla satış noktası başka bir satış noktasına taşındı." });
+                staticInfo.MesajGoster("Başarıyla satış noktası başka bir satış noktasına taşındı.");
+            }
+            else
+            {
+                // js.InvokeAsync<string>("MesajKutusuGoster", new object[] { "Ne yazık ki satış noktanız taşınamadı." });
+                staticInfo.MesajGoster("Ne yazık ki satış noktanız taşınamadı.");
+
+            }
+            MasalariGetir(staticInfo.AcivePosSettings.LastRegionID);
+        }
+        else
+        {
+            navManager.NavigateTo($"/pointsaledetail?id={ID}");
+        }
+        staticInfo.ActiveMenuSettings.TransferOperation = false;
+    }
+
+    List<Point> Points = null;
+    private async void MasalariGetir(int bolgeID)
+    {
+        YGate.Shared.Concretes.RequestObject obj = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>($"api/Point/GetPointForRegionID?RegionID={bolgeID.ToString()}");
+        Points = YGate.Utils.Json.Deserialized<List<Point>>(obj.Data.ToString());
+        StateHasChanged();
+        staticInfo.AcivePosSettings.LastRegionID = bolgeID;
+    }
+}
+
+@functions {
+    List<Region> Regions = null;
+
+    protected async override Task OnInitializedAsync()
+    {
+        YGate.Shared.Concretes.RequestObject obj = await Http.GetFromJsonAsync<YGate.Shared.Concretes.RequestObject>($"api/Region/GetRegionFromOwnerGuid?OwnerGuid={staticInfo.MyToken.GID}");
+        staticInfo.ActiveMenuSettings.MenuType = NavigationMenuType.PosPage;
+        if (!staticInfo.ActiveMenuSettings.TransferOperation)
+        {
+            staticInfo.ActiveMenuSettings.TransferItem = -1;
+            staticInfo.ActiveMenuSettings.TransferPoint = -1;
+            staticInfo.ActiveMenuSettings.SelectedSalesItem = -1;
+        }
+        Regions = YGate.Utils.Json.Deserialized<List<Region>>(obj.Data.ToString());
+
+    }
+}

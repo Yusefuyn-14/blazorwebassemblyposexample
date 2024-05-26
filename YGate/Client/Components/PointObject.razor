@@ -1,0 +1,59 @@
+﻿
+<div class="masa-card" @onclick="()=> ClickedAction.Invoke(ID)">
+    <div class="card" id="pointobject" style="background-color:@ColorFromHex;">
+        <div class="card-body">
+            <div class="row" id="divIcon">
+                <span style="font-size:12px;color:#FFFFFFEE;">@Not</span>
+            </div>
+            <div class="row" id="divIcerik">
+                <span style="font-size:20px;">@PointName</span>
+            </div>
+            <div class="row" id="divAlt">
+                <span class="col-md-6" style="text-align:start;">@Price₺</span>
+                <span class="col-md-6" style="text-align:end;">@Time</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string PointName { get; set; } = "Point 1";
+
+    [Parameter]
+    public string Price { get; set; } = "0";
+
+    [Parameter]
+    public string Time { get; set; } = "00:00";
+
+    public string __colorfromhex { get; set; } = "#00AA00";
+
+    [Parameter]
+    public string ColorFromHex
+    {
+        get
+        {
+            if (double.Parse(Price) > 0)
+            {
+                return YGate.Utils.Color.HexColorToFaded(__colorfromhex);
+            }
+            else
+            {
+                return __colorfromhex;
+            }
+        }
+        set
+        {
+            __colorfromhex = value;
+        }
+    }
+
+    [Parameter]
+    public string Not { get; set; } = "";
+
+    [Parameter]
+    public int ID { get; set; }
+
+    [Parameter]
+    public Action<int> ClickedAction { get; set; }
+}

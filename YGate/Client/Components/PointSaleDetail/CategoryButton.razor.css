@@ -1,0 +1,10 @@
+﻿.category {
+    line-height: 35px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    height: 50px;
+    width: 100%;
+    margin: 5px;
+    display: grid;
+}

@@ -1,0 +1,42 @@
+﻿<div class="masa-card" @onclick="CallbackAction">
+    <div class="card" id="pointobject">
+        <div class="card-body">
+            <div class="row fill-height" id="divIcerik">
+                @{
+                    string Icons = "oi oi-";
+                    if (IconType == IconTypeEnum.fontawesome)
+                        Icons = "fa-";
+                    Icons += Icon;
+                }
+                <span class="@Icons icon"></span>
+            </div>
+            <div class="row fixed-height" id="divAlt">
+                <span>@VisibleText</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string ColorFromHex { get; set; } = "#0A0";
+
+    [Parameter]
+    public string VisibleText { get; set; } = "#0A0";
+
+    [Parameter]
+    public string Icon { get; set; } = "";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> CallbackAction { get; set; }
+
+    [Parameter]
+    public IconTypeEnum IconType { get; set; } = IconTypeEnum.openiconic;
+
+    public enum IconTypeEnum
+    {
+        openiconic,
+        fontawesome
+    }
+}

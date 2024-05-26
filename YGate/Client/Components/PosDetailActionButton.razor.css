@@ -1,0 +1,33 @@
+﻿.masa-card {
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.card {
+    height: 90px;
+    width: 90px;
+}
+
+span {
+    font-size:12px;
+    text-align:center;
+}
+
+.icon {
+    font-size:30px;
+}
+.fill-height {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fill-height .row {
+   flex: 1;
+}
+
+.fixed-height {
+    height: 20px;
+}

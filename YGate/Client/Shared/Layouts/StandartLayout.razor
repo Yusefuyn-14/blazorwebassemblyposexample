@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+@layout MainLayout
+@inject StaticInformation staticInfo
+
+<div class="page">
+    <div class="sidebar close">
+        <NavigationMenu />
+    </div>
+    <section class="home">
+        @if (!string.IsNullOrEmpty(staticInfo.Mesajiniz.ToString()))
+        {
+            <div id="AlertDiv" class="alert alert-primary" role="alert">
+                @staticInfo.Mesajiniz.ToString()
+            </div>
+        }
+
+        @Body
+    </section>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        staticInfo.ActiveMenuSettings.LayoutStateHasChange = (() => StateHasChanged());
+    }
+}

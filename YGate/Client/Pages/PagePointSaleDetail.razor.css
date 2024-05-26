@@ -1,0 +1,54 @@
+﻿.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.scrollable-div {
+    max-height: calc(100% - 75px);
+    min-height: calc(100% - 75px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.button-container {
+    display: flow;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    max-height: 75px;
+    margin: 0;
+}
+
+.rectangle-button {
+    width: 35%;
+    height: 40px;
+    background-color: #3498db;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px; /* Dikdörtgen tuşlar arasında boşluk bırakın */
+}
+
+.circle-button {
+    width: 80px;
+    height: 80px;
+    background-color: #3498db;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    outline:5px solid white;
+    border-radius: 50%;
+    margin-right: 10px; /* Yuvarlak tuş ile diğer tuş arasında boşluk bırakın */
+}
+
+.right {
+    margin: 0px -12px 0px 0px;
+}
+
+.left {
+    margin: 0px 0px 0px -24px;
+}

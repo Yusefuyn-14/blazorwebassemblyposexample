@@ -1,0 +1,16 @@
+﻿@page "/paypage"
+@layout StandartLayout
+@inject StaticInformation staticInfo
+<div class="container" style="height:100%;">
+    <div class="row" style="background-color:red; height:calc(100%-33%)"></div>
+    <div class="row" style="background-color:blue;height:calc(100%-33%)"></div>
+    <div class="row" style="background-color:red;height:calc(100%-33%)"></div>
+</div>
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        staticInfo.ActiveMenuSettings.MenuType = NavigationMenuType.PayPage;
+        staticInfo.ActiveMenuSettings.NavMenuStateHasChange();
+    }
+}

@@ -1,0 +1,36 @@
+﻿@using YGate.Client.Shared.Layouts;
+@using YGate.Client.Pages;
+@using YGate.Shared.Concretes;
+@inject StaticInformation staticInfo
+@inject HttpClient http
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        @* <PageSetup></PageSetup> *@
+        @if (staticInfo.MyToken == null)
+        {
+            <PageLogin />
+        }
+        else
+        {
+            if (staticInfo.MyToken.ValidTime > DateTime.Now)
+            {
+                <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" >
+                </RouteView>
+
+                <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+            }
+            else
+            {
+                <PageLogin LoginMessage="Son girişiniz üzerinden uzun zaman geçmiş. Lütfen tekrar giriş yapınız." />
+            }
+        }
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+
+
+</Router>

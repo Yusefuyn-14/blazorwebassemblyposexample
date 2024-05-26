@@ -1,0 +1,13 @@
+﻿<div @onclick="ClickedEvent" class="btn btn-primary category">
+    <p class="text-center">@VisibleText</p>
+</div>
+@code {
+    [Parameter]
+    public string BackgroundColorFromHex { get; set; }
+
+    [Parameter]
+    public string VisibleText { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> ClickedEvent { get; set; }
+}
