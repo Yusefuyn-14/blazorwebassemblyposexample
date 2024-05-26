@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Business\\YGate.Business.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Business\\YGate.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Business\\YGate.Business.csproj",
+        "projectName": "YGate.Business",
+        "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Business\\YGate.Business.csproj",
+        "packagesPath": "C:\\Users\\Yusuf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yusuf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\YGate.Smulate.csproj": {
+                "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\YGate.Smulate.csproj"
+              },
+              "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj": {
+                "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\YGate.Server.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\YGate.Server.Entities.csproj",
+        "projectName": "YGate.Server.Entities",
+        "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\YGate.Server.Entities.csproj",
+        "packagesPath": "C:\\Users\\Yusuf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yusuf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj": {
+                "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\YGate.Smulate.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\YGate.Smulate.csproj",
+        "projectName": "YGate.Smulate",
+        "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\YGate.Smulate.csproj",
+        "packagesPath": "C:\\Users\\Yusuf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Smulate\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yusuf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\YGate.Server.Entities.csproj": {
+                "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate.Server.Entities\\YGate.Server.Entities.csproj"
+              },
+              "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj": {
+                "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj",
+        "projectName": "YGate.Shared",
+        "projectPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\YGate.Shared.csproj",
+        "packagesPath": "C:\\Users\\Yusuf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yusuf\\Desktop\\Projeler\\YGate\\YGate\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yusuf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
